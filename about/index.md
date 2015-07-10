@@ -29,3 +29,10 @@ While we may intimately know a few services, we’re by no means _the_ experts o
 This site does not endorse or care about individual cloud providers, or which piece of technology performs better than another; all we care about is providing tools and reusable bits of expertise for people to draw their own conclusions.
 
 Go get em!
+
+## How to contribute to this blog
+
+This blog is open to anyone who is interested in sharing their experience in performance benchmarking, especially those doing workloads in clouds. 
+
+- You can submit a PR on this repository with an entry, it's a simple [Github Pages](https://pages.github.com/) blog, just write something up in Markdown and send it in! 
+
