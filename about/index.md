@@ -1,6 +1,9 @@
 ---
 title: Welcome to Cloud Benchmarking
 layout: post
+permalink: /about/index.html
+date: 2015-01-01 00:00:00
+
 ---
 
 ![Go fast](/images/speedometer.jpg)
