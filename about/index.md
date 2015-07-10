@@ -10,7 +10,7 @@ We've all read the "Database vendor gets X,XXX,XXXX writes on this cloud" posts 
 
 ![Go fast](/images/speedometer.jpg)
 
-That's what this site is about, we give people the tools and means to grab any set of services, benchmark them, and publish the results. Anyone can then take those bits and replicate the tests in multiple clouds. Is your software being used in the cloud? You can now give users the means to compare and contrast your product on their clouds with optimal configuration instead of relying on a third party to get it right. 
+That's what this project is about, we give people the tools and means to grab any set of services, benchmark them, and publish the results. Anyone can then take those bits and replicate the tests in multiple clouds. Is your software being used in the cloud? You can now give users the means to compare and contrast your product on their clouds with optimal configuration instead of relying on a third party to get it right. 
 
 ## How we got here
 
@@ -22,7 +22,7 @@ As an example, monitoring the effect of adjusting the cache in nginx is a solved
 
 ## So are you trying to tell me what cloud to use? 
 
-While we may intimately know a few services, we’re by no means the experts. We’ve created benchmarks for some popular services, such as mongodb, cassandra, mysql and siege, in order to provide a basic set of examples. Now we’re looking for community experts who are interested in benchmarking in order to fill the gap of knowledge. 
+While we may intimately know a few services, we’re by no means _the_ experts on everything. We’ve created benchmarks for some popular services, such as mongodb, cassandra, mysql and siege, in order to provide a basic set of examples. Now we’re looking for community experts who are interested in benchmarking in order to fill the gap of knowledge. 
 
 This site does not endorse or care about individual cloud providers, or which piece of technology performs better than another; all we care about is providing tools and reusable bits of expertise for people to draw their own conclusions.
 
