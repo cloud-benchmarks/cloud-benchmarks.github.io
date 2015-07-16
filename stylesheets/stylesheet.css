@@ -250,5 +250,8 @@ a {
 
 body.post .main-content {
     margin-top: 60px;
+}
+
+.main-content {
     max-width: 1170px;
 }
