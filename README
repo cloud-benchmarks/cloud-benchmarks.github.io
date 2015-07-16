@@ -1,1 +1,16 @@
 Blog for Cloud Benchmarking
+
+## Previewing the Blog post
+
+Install the deps you need
+
+    sudo apt-get install ruby ruby-dev make nodejs
+    sudo gem install jekyll jekyll-mentions --no-rdoc --no-ri
+
+Then run this in the root directory:
+
+    jekyll serve
+
+And finally, check out the page in your local browser: 
+
+https://localhost:4000
