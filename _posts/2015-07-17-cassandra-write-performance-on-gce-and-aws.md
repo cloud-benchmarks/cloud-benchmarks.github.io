@@ -9,11 +9,7 @@ comments: true
 
 tl;dr - We achieved better Cassandra performance on GCE vs. Amazon, at close to half the cost.
 
-Benchmarking and performance are interesting problems, especially in today’s growing [microservices](https://en.wikipedia.org/wiki/Microservices) scene. It used to be a question of “how does this hardware compare to that hardware,” but as computing and service-oriented architectures grow the question has evolved. How does my [cloud and application](http://12factor.net/) stack handle this? It’s no longer enough to run your favorite machine benchmark tool on your web server and call it a day.
-
-Measuring every microservice in your stack, from backend to frontend, is a complex task. We started thinking about how you would model a system to benchmark all of these services. It’s not just a matter of measuring the performance of one service, but also its interactions with other services. Now multiply that by every config option for every service, like Cassandra, which has hundreds of options that can affect performance. And let’s not forget everything that you need to get Cassandra running, all those things have knobs too.
-
-So, to start this process, we decided to benchmark Cassandra on different public clouds. Over the next few months we’ll continue to expand for larger sizes and eventually we plan on rerunning the famous [1 million writes in Cassandra](http://googlecloudplatform.blogspot.com/2014/03/cassandra-hits-one-million-writes-per-second-on-google-compute-engine.html) across some public clouds. Let’s get started!
+We decided to start the process of benchmarking Cassandra on different public clouds. Over the next few months we’ll continue to expand for larger sizes and eventually we plan on rerunning the famous [1 million writes in Cassandra](http://googlecloudplatform.blogspot.com/2014/03/cassandra-hits-one-million-writes-per-second-on-google-compute-engine.html) across some public clouds. Let’s get started!
 
 #The Setup
 
