@@ -54,13 +54,17 @@ By default, the Cassandra charm installs OpenJDK 7. We also tested against Oracl
 
 #GCE Results
 
-[Insert Marco’s data here]
+The best result we were able to achieve on GCE was with a three-node Cassandra cluster using m3.2xlarge instances and a c3.4xlarge for `cassandra-stress`.
+
+The next two best results came in at 109,583 ops/s and 101,886 ops/s.
 
 #AWS Results
 
-The best results were were able to achieve on AWS was with a three-node Cassandra cluster on r3.4xlarge instances. With that, we were able to achieve 100k writes/second with a 99th percentile latency of 4.8ms.
+The best result were were able to achieve on AWS was with a three-node Cassandra cluster on r3.4xlarge instances. With that, we were able to achieve 100k writes/second with a 99th percentile latency of 4.8ms.
 
 A follow-up test using i2.4xlarge instances achieved similar results. We’ll be looking at how to best benchmark between instance types in a future blog post.
+
+All benchmark results for Cassandra are available for comparison [here](http://cloud-benchmarks.org/services/cassandra).
 
 #Lessons Learned
 
