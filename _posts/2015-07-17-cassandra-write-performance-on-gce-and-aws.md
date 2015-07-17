@@ -5,7 +5,7 @@ layout: post
 comments: true
 ---
 
-*... or how we learned to create cross-cloud repeatable benchmarks for everybody.*
+*... or how we created cross-cloud repeatable benchmarks for everybody.*
 
 tl;dr - We achieved better Cassandra performance on GCE vs. Amazon, at half the cost.
 
@@ -19,8 +19,7 @@ So, to start this process, we decided to benchmark Cassandra on different public
 
 Every iteration of benchmark used the following constants:
 
-Apache Cassandra 2.1
-- OpenJDK 7 and Oracle Java SE 8u51
+- Apache Cassandra 2.1 with OpenJDK 7 and Oracle Java SE 8u51
 - Ubuntu 14.04.1 with Juju 1.24
 
 We used the following hardware configurations on AWS:
@@ -30,11 +29,28 @@ We used the following hardware configurations on AWS:
 - 8 cores with 61G RAM (r3.2xlarge)
 - 16 cores with 122G RAM (r3.4xlarge)
 
-We ran cassandra-stress with the following configurations:
+and comparable hardware on GCE:
+
+[Marco]
+
+Leveraging Juju to model the infrastructure, we're able to condense the installation, tuning, and benchmarking of any service into a composable, repeatable component to execute against any architecture or substrate. This allowed us to turn this:
 
 ```
 cassandra-stress write n=2000000 cl=LOCAL_ONE -mode native cql3 -schema keyspace=Keyspace1 -log -node 52.3.185.174
 ```
+
+into this:
+```
+juju action do cassandra-stress/0 stress
+```
+
+We ran cassandra-stress with the following configurations:
+
+#A tale of two JDKS: Open JDK vs. Oracle
+
+By default, the Cassandra charm installs OpenJDK 7. We also tested against Oracle’s Java SE 8u51. We did not, however, do any tuning of java parameters. Recommendations from seasoned Cassandra experts would be welcome in this area.
+
+[Marco, I think you had better numbers with this change. I didn’t see much difference between the two on AWS but you did on GCE?]
 
 #GCE Results
 
@@ -51,7 +67,7 @@ A follow-up test using i2.4xlarge instances achieved similar results. We’ll be
 ## Building benchmark charms
 We started by adding benchmarking to the Cassandra charm. This sounded ideal; the charm comes packaged with a benchmark. We quickly realized, however, that running `cassandra-stress` on the nodes created a significant resource contention.
 
-We created a new charm to run `cassandra-stress` on its own instance, allowing us to wail on the Cassandra cluster without skewing the results.
+We created a new [cassandra-stress](https://jujucharms.com/u/marcoceppi/cassandra-stress/trusty/1) charm to run `cassandra-stress` from its own instance, allowing us to wail on the Cassandra cluster without skewing the results.
 
 ## Scaling the benchmark
 As we scaled from three to six nodes in the Cassandra cluster, we unexpectedly saw a slight decrease in performance. We are likely hitting a ceiling with regard to how many ops/sec we can achieve with a single `cassandra-stress` instance.
@@ -59,18 +75,11 @@ As we scaled from three to six nodes in the Cassandra cluster, we unexpectedly s
 The next phase of benchmarking Cassandra will look at creating a cluster of `cassandra-stress` machines to simultaneously stress the cluster, as well as determining the optimal number of `cassanda-stress` instances to Cassandra nodes.
 
 ## Potential bottlenecks
-There was a negligible differences in performance between r3.2xlarge and r3.4xlarge instances. My suspicion is that we were hitting a bottleneck somewhere in our environment, and we’ll need to isolate that during the next benchmark cycle.
+There was a negligible differences in performance between r3.2xlarge and r3.4xlarge instances. My suspicion is that we were hitting a bottleneck somewhere between in our environment (network latency, disk i/o, kernel, etc), and we’ll need to isolate that during the next benchmark cycle.
 
-##A tale of two JDKS: Open JDK vs. Oracle
 
-By default, the Cassandra charm installs OpenJDK 7. We also tested against Oracle’s Java SE 8u51. We did not, however, do any tuning of java parameters. Recommendations from seasoned Cassandra experts would be welcome in this area.
-
-[Marco, I think you had better numbers with this. I didn’t see much difference between the two on AWS but you did on GCE?]
 
 But these are just the initial findings, as we ramp up towards a million writes per second we will continue to do a few things:
 Keep adding recommendations for experienced Cassandra users to squeeze the most out of these benchmarks (PRs accepted!)
 Keep adding recommendations to other parts of the stack that can be optimized.
 Keep improving the tools so that people can submit their own benchmarks to throw into the pile.
-
-[1] Link to these charms so people can click right into the benchmark actions
-[Add link to cassandra-stress in marco’s namespace]
