@@ -7,7 +7,7 @@ comments: true
 
 *... or how we created cross-cloud repeatable benchmarks for everybody.*
 
-tl;dr - We achieved better Cassandra performance on GCE vs. Amazon, at half the cost.
+tl;dr - We achieved better Cassandra performance on GCE vs. Amazon, at close to half the cost.
 
 Benchmarking and performance are interesting problems, especially in today’s growing [microservices](https://en.wikipedia.org/wiki/Microservices) scene. It used to be a question of “how does this hardware compare to that hardware,” but as computing and service-oriented architectures grow the question has evolved. How does my [cloud and application](http://12factor.net/) stack handle this? It’s no longer enough to run your favorite machine benchmark tool on your web server and call it a day.
 
@@ -22,17 +22,15 @@ Every iteration of benchmark used the following constants:
 - Apache Cassandra 2.1 with OpenJDK 7 and Oracle Java SE 8u51
 - Ubuntu 14.04.1 with Juju 1.24
 
-We used the following hardware configurations on AWS:
+We used the following hardware configuration on AWS:
 
-- 2 cores with 8G RAM (r3.large)
-- 4 cores with 16G RAM (r3.xlarge)
-- 8 cores with 61G RAM (r3.2xlarge)
-- 16 cores with 122G RAM (r3.4xlarge)
+- 8 cores with 30G RAM (m3.2xlarge)
 
 and comparable hardware on GCE:
 
-[Marco]
+- 8 cores with 30G RAM (n1-standard-8)
 
+## Juju
 Leveraging Juju to model the infrastructure, we're able to condense the installation, tuning, and benchmarking of any service into a composable, repeatable component to execute against any architecture or substrate. This allowed us to turn this:
 
 ```
@@ -46,23 +44,31 @@ juju action do cassandra-stress/0 stress
 
 We ran cassandra-stress with the following configurations:
 
-#A tale of two JDKS: Open JDK vs. Oracle
+##A tale of two JDKS: Open JDK vs. Oracle
 
 By default, the Cassandra charm installs OpenJDK 7. We also tested against Oracle’s Java SE 8u51. We did not, however, do any tuning of java parameters. Recommendations from seasoned Cassandra experts would be welcome in this area.
 
 [Marco, I think you had better numbers with this change. I didn’t see much difference between the two on AWS but you did on GCE?]
 
-#GCE Results
 
-The best result we were able to achieve on GCE was with a three-node Cassandra cluster using m3.2xlarge instances and a c3.4xlarge for `cassandra-stress`.
+#Results
+##AWS
+
+The best result were were able to achieve on AWS was with a three-node Cassandra cluster on m3.2xlarge instances and a c3.4xlarge instance for `cassandra-stress`.
+
+With that, we were able to achieve 90,748 writes/second with a 99th percentile latency of 4.0ms.
+
+Follow-up tests using r3.4xlarge and i2.4xlarge instances were hit slightly higher numbers but at greater cost. We’ll be looking at how to best benchmark between instance types in a future blog post.
+
+##GCE
+
+The best result we were able to achieve on GCE was 111,394 ops/s and 3ms latency (99th percentile) with a three-node Cassandra cluster using n1-standard-8 instances and a n1-highcpu-16 for `cassandra-stress`.
 
 The next two best results came in at 109,583 ops/s and 101,886 ops/s.
 
-#AWS Results
+## Summary
 
-The best result were were able to achieve on AWS was with a three-node Cassandra cluster on r3.4xlarge instances. With that, we were able to achieve 100k writes/second with a 99th percentile latency of 4.8ms.
-
-A follow-up test using i2.4xlarge instances achieved similar results. We’ll be looking at how to best benchmark between instance types in a future blog post.
+With Google's average hourly cost of $0.304 and Amazon's cost of $0.532, Google clearly outperforms it's AWS counterpart at almost half the cost.
 
 All benchmark results for Cassandra are available for comparison [here](http://cloud-benchmarks.org/services/cassandra).
 
