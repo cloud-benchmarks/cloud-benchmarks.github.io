@@ -29,16 +29,23 @@ and comparable hardware on GCE:
 ## Juju
 Leveraging Juju to model the infrastructure, we're able to condense the installation, tuning, and benchmarking of cassandra into a composable, repeatable component to execute against any architecture or substrate. This allowed us to turn this:
 
+- Create cloud instances
+- Read the [docs](https://wiki.apache.org/cassandra/GettingStarted)
+- Install Cassandra
+- [Tune Cassandra](http://wiki.apache.org/cassandra/PerformanceTuning)
+- Run cassandra-stress:
 ```
 cassandra-stress write n=2000000 cl=LOCAL_ONE -mode native cql3 -schema keyspace=Keyspace1 -log -node 52.3.185.174
 ```
 
 into this:
+
 ```
+juju deploy cassandra -n3
+juju deploy cassandra-stress
+juju add-relation cassandra-stress cassandra
 juju action do cassandra-stress/0 stress
 ```
-
-We ran cassandra-stress with the following configurations:
 
 ##A tale of two JDKS: Open JDK vs. Oracle
 
