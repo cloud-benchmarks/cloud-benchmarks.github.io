@@ -90,7 +90,7 @@ The next phase of benchmarking Cassandra will look at creating a cluster of `cas
 ## Potential bottlenecks
 There was a negligible differences in performance between r3.2xlarge and r3.4xlarge instances. My suspicion is that we were hitting a bottleneck somewhere between in our environment (network latency, disk i/o, kernel, etc), and we’ll need to isolate that during the next benchmark cycle.
 
-
+# What's next
 
 But these are just the initial findings, as we ramp up towards a million writes per second we will continue to do a few things:
 Keep adding recommendations for experienced Cassandra users to squeeze the most out of these benchmarks (PRs accepted!)
