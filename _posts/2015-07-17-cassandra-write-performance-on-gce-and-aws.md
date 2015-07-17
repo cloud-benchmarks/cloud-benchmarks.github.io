@@ -5,7 +5,7 @@ layout: post
 comments: true
 ---
 
-*... or how we created cross-cloud repeatable benchmarks for everybody.*
+*... or how we created cross-cloud tunable, repeatable benchmarks for everybody.*
 
 tl;dr - We achieved better Cassandra performance on GCE vs. Amazon, at close to half the cost.
 
