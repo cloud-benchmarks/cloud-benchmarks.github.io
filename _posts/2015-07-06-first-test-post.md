@@ -1,7 +1,8 @@
 ---
-title: This is my title
+title: Comparing Cassandra Write Performance on Google Compute Engine and AWS
+author: Adam Israel
 layout: post
 comments: true
 ---
 
-Here is my page. This is a test.
+... or how we learned to create cross-cloud repeatable benchmarks for everybody. 
