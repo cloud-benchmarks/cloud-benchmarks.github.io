@@ -27,7 +27,7 @@ and comparable hardware on GCE:
 - 8 cores with 30G RAM (n1-standard-8)
 
 ## Juju
-Leveraging Juju to model the infrastructure, we're able to condense the installation, tuning, and benchmarking of any service into a composable, repeatable component to execute against any architecture or substrate. This allowed us to turn this:
+Leveraging Juju to model the infrastructure, we're able to condense the installation, tuning, and benchmarking of cassandra into a composable, repeatable component to execute against any architecture or substrate. This allowed us to turn this:
 
 ```
 cassandra-stress write n=2000000 cl=LOCAL_ONE -mode native cql3 -schema keyspace=Keyspace1 -log -node 52.3.185.174
