@@ -68,7 +68,7 @@ Follow-up tests using r3.4xlarge and i2.4xlarge instances were hit slightly high
 
 The best result we were able to achieve on GCE was [111,394 ops/s](http://cloud-benchmarks.org/submissions/1) and 3ms latency (99th percentile) with a three-node Cassandra cluster using n1-standard-8 instances and a n1-highcpu-16 for `cassandra-stress`.
 
-The next two best results came in at 109,583 ops/s and 101,886 ops/s.
+The next two best results came in at [109,583 ops/s](http://cloud-benchmarks.org/submissions/3) and [101,886 ops/s](http://cloud-benchmarks.org/submissions/2).
 
 
 ## Summary
