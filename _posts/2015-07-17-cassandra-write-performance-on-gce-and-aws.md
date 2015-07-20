@@ -3,7 +3,7 @@ title: Comparing Cassandra Write Performance on Google Compute Engine and AWS
 author: Adam Israel
 layout: post
 comments: true
-published: false
+published: true
 ---
 
 *... or how we created cross-cloud tunable, repeatable benchmarks for everybody.*
