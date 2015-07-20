@@ -62,7 +62,7 @@ The best result were were able to achieve on AWS was with a three-node Cassandra
 
 With that, we were able to achieve [90,748 writes/second](http://cloud-benchmarks.org/submissions/4) with a 99th percentile latency of 4.0ms.
 
-Follow-up tests using r3.4xlarge and i2.4xlarge instances were hit slightly higher numbers but at greater cost. We’ll be looking at how to best benchmark between instance types in a future blog post.
+Follow-up tests using r3.4xlarge and i2.4xlarge instances were hitting slightly higher numbers but at greater cost. We’ll be looking at how to best benchmark between instance types in a future blog post.
 
 ##GCE
 
