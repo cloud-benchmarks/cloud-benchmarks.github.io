@@ -2,6 +2,7 @@
 title: Submitting to Cloud Benchmarking
 layout: post
 permalink: /about/submit.html
+published: true
 date: 2017-07-17 00:00:00
 
 ---
