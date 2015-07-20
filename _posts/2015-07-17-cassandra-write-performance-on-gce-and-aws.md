@@ -65,21 +65,22 @@ Because of these results, going forward all benchmarks were run with Oracle Java
 
 The best result were were able to achieve on AWS was with a three-node Cassandra cluster on m3.2xlarge instances and a c3.4xlarge instance for `cassandra-stress`.
 
-With that, we were able to achieve 90,748 writes/second with a 99th percentile latency of 4.0ms.
+With that, we were able to achieve [90,748 writes/second](http://cloud-benchmarks.org/submissions/4) with a 99th percentile latency of 4.0ms.
 
 Follow-up tests using r3.4xlarge and i2.4xlarge instances were hit slightly higher numbers but at greater cost. We’ll be looking at how to best benchmark between instance types in a future blog post.
 
 ##GCE
 
-The best result we were able to achieve on GCE was 111,394 ops/s and 3ms latency (99th percentile) with a three-node Cassandra cluster using n1-standard-8 instances and a n1-highcpu-16 for `cassandra-stress`.
+The best result we were able to achieve on GCE was [111,394 ops/s](http://cloud-benchmarks.org/submissions/1) and 3ms latency (99th percentile) with a three-node Cassandra cluster using n1-standard-8 instances and a n1-highcpu-16 for `cassandra-stress`.
 
 The next two best results came in at 109,583 ops/s and 101,886 ops/s.
+
 
 ## Summary
 
 With Google's average hourly cost of $0.304 and Amazon's cost of $0.532, Google clearly outperforms it's AWS counterpart at both ops/sec and from a cost/resource standpoint.
 
-We've [submitted](http://cloud-benchmarks.org/services/cassandra) the data we produced during these benchmark runs and invite anyone to [reproduce these results](LINK TO INSTRUCTIONS) either on AWS, GCE, Azure, Joyent, HP Cloud, Digital Ocean, or most any other public/private cloud!
+We've [submitted](http://cloud-benchmarks.org/services/cassandra) the data we produced during these benchmark runs and invite anyone to [reproduce these results](http://blog.cloud-benchmarks.org/about/submit.html) either on AWS, GCE, Azure, Joyent, HP Cloud, Digital Ocean, or most any other public/private cloud!
 
 #Lessons Learned
 
