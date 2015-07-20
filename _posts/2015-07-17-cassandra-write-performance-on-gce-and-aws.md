@@ -49,9 +49,9 @@ juju add-relation cassandra-stress cassandra
 juju action do cassandra-stress/0 stress operations=2000000
 ```
 
-##A tale of two JDKS: Open JDK vs. Oracle
+##A tale of two JDKs: Open JDK vs. Oracle
 
-Due to licensing issues, the Cassandra charm installs OpenJDK 7. However, there are configuration options to use another JRE, such as Oracle's Java JRE. We ested both versions to see if there was discernable difference and our results are outlined below. Max heap sizes and heap new sizes are set automatically by the charm and tuned depending on instance size. Recommendations from seasoned Cassandra experts would be welcome in this area.
+Due to licensing issues, the Cassandra charm installs OpenJDK 7. However, there are configuration options to use another JRE, such as Oracle's Java JRE. We tested both versions to see if there was discernable difference and our results are outlined below. Max heap sizes and heap new sizes are set automatically by the charm and tuned depending on instance size. Recommendations from seasoned Cassandra experts would be welcome in this area.
 
 On AWS, when running Oracle Java 8 JRE vs OpenJDK 7 there was a 32% increase in performance when using the Oracle Java over OpenJDK.
 
