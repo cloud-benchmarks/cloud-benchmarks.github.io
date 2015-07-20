@@ -77,7 +77,7 @@ The next two best results came in at 109,583 ops/s and 101,886 ops/s.
 
 ## Summary
 
-With Google's average hourly cost of $0.304 and Amazon's cost of $0.532, Google clearly outperforms it's AWS counterpart at both ops/sec and from a cost/resource standpoint".
+With Google's average hourly cost of $0.304 and Amazon's cost of $0.532, Google clearly outperforms it's AWS counterpart at both ops/sec and from a cost/resource standpoint.
 
 We've [submitted](http://cloud-benchmarks.org/services/cassandra) the data we produced during these benchmark runs and invite anyone to [reproduce these results](LINK TO INSTRUCTIONS) either on AWS, GCE, Azure, Joyent, HP Cloud, Digital Ocean, or most any other public/private cloud!
 
