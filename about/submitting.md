@@ -1,7 +1,7 @@
 ---
 title: Submitting to Cloud Benchmarking
 layout: post
-permalink: /about/submitting.html
+permalink: /about/submit.html
 date: 2017-07-17 00:00:00
 
 ---
