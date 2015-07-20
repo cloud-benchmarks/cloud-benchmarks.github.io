@@ -100,6 +100,7 @@ There was a negligible differences in performance between r3.2xlarge and r3.4xla
 # What's next
 
 But these are just the initial findings, as we ramp up towards a million writes per second we will continue to do a few things:
+
  - Keep adding recommendations for experienced Cassandra users to squeeze the most out of these benchmarks (PRs accepted!)
  - Keep adding recommendations to other parts of the stack that can be optimized.
  - Keep improving the tools so that people can submit their own benchmarks to throw into the pile.
