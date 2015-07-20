@@ -12,6 +12,7 @@ The first step is to deploy the workload you wish to benchmark. It can be as sim
 
 ```
 juju deploy -n3 cs:trusty/cassandra
+juju deploy cs:~marcoceppi/trusty/cassandra-stress
 ```
 
 
@@ -28,13 +29,14 @@ And relate the two:
 
 ```
 juju add-relation cassandra benchmark-gui
+juju add-relation cassandra cassandra-stress
 ```
 
 At this point, you are ready to start benchmarking. You can read more about writing and running benchmarks in the [Charm Authors Guide to Benchmarking](https://jujucharms.com/docs/stable/authors-charm-benchmarks).
 
 
 ```
-juju action do cassandra/0 stress operations=2000000
+juju action do cassandra-stress/0 stress operations=2000000
 ```
 
 
