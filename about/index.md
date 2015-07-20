@@ -35,7 +35,7 @@ Go get em!
 This blog is open to anyone who is interested in sharing their experience in performance benchmarking, especially those doing workloads in clouds. 
 
 - You can submit a PR on this repository with an entry, it's a simple [Github Pages](https://github.com/cloud-benchmarks/cloud-benchmarks.github.io) blog, just write something up in Markdown and send it in! 
-- 
+
 ## How to submit a benchmark result
 
 - [Submission instructions](http://blog.cloud-benchmarks.org/about/submit.html)
