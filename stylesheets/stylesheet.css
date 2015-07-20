@@ -255,3 +255,13 @@ body.post .main-content {
 .main-content {
     max-width: 1170px;
 }
+
+footer p {
+  text-align: center;
+  color: #aaa;
+}
+
+footer p a {
+  color: #aaa;
+  text-decoration: underline;
+}
