@@ -18,20 +18,17 @@ Add the `benchmark-gui` to your environment:
 
 ```
 juju deploy cs:~marcoceppi/trusty/benchmark-gui
-juju set benchmark-gui juju-pass=asdfadsf
+juju set benchmark-gui juju-pass=<admin-secret from ~/.juju/environments.yaml>
 ```
 And relate the two:
 
 ```
 juju add-relation cassandra benchmark-gui
 ```
-At this point, you are ready to start benchmarking.
+At this point, you are ready to start benchmarking. You can read more about writing and running benchmarks in the [Benchmarks Author Guide].
 
 ```
-juju action do cassandra/0 stress n=2000000
+juju action do cassandra/0 stress operations=2000000
 ```
-run benchmarks (CLI-only)
-use benchmark-gui to select and submit results
 
-
-For the brave, submitting directly via API
+Open the benchmark-gui in your web browser by browsing to http://unit-ipaddress/. From there, you can select the relevant results and submit them by clicking "Publish to loud-benchmarking.org"
