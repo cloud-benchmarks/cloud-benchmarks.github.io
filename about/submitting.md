@@ -25,7 +25,7 @@ And relate the two:
 ```
 juju add-relation cassandra benchmark-gui
 ```
-At this point, you are ready to start benchmarking. You can read more about writing and running benchmarks in the [Benchmarks Author Guide].
+At this point, you are ready to start benchmarking. You can read more about writing and running benchmarks in the [Charm Authors Guide to Benchmarking](https://jujucharms.com/docs/stable/authors-charm-benchmarks).
 
 ```
 juju action do cassandra/0 stress operations=2000000
