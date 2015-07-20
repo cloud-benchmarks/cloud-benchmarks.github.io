@@ -35,19 +35,14 @@ Leveraging Juju to model the infrastructure, we're able to condense the installa
 - Read the [Cassandra docs](https://wiki.apache.org/cassandra/GettingStarted)
 - Install and configure Cassandra
 - [Tune Cassandra](http://wiki.apache.org/cassandra/PerformanceTuning)
-- Run cassandra-stress:
-```
-cassandra-stress write n=2000000 cl=LOCAL_ONE -mode native cql3 -schema keyspace=Keyspace1 -log -node 52.3.185.174
-```
+- Run cassandra-stress: `cassandra-stress write n=2000000 cl=LOCAL_ONE -mode native cql3 -schema keyspace=Keyspace1 -log -node 52.3.185.174`
 
 into this:
 
-```
-juju deploy cassandra -n3
-juju deploy cassandra-stress
-juju add-relation cassandra-stress cassandra
-juju action do cassandra-stress/0 stress operations=2000000
-```
+    juju deploy cassandra -n3
+    juju deploy cassandra-stress
+    juju add-relation cassandra-stress cassandra
+    juju action do cassandra-stress/0 stress operations=2000000
 
 ##A tale of two JDKs: Open JDK vs. Oracle
 
