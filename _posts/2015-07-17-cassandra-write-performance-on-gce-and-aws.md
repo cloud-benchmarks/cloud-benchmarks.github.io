@@ -99,4 +99,4 @@ But these are just the initial findings, as we ramp up towards a million writes 
 
  - Keep adding recommendations for experienced Cassandra users to squeeze the most out of these benchmarks (PRs accepted!)
  - Keep adding recommendations to other parts of the stack that can be optimized.
- - Keep improving the tools so that people can submit their own benchmarks to throw into the pile.
+ - Keep improving the tools so that people can [submit their own benchmarks](http://blog.cloud-benchmarks.org/about/submit.html) to throw into the pile.
