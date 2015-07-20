@@ -7,7 +7,7 @@ date: 2017-07-17 00:00:00
 
 ---
 
-The kind of comparative analysis that cloud-benchmarking.org hopes to foster depends on you the user to submit your benchmarking results. To do that, we've released a `benchmark-gui` charm in order to facilitate that.
+The kind of comparative analysis that cloud-benchmarking.org hopes to foster depends on you the user to submit your benchmarking results. To do that, we've released a `benchmark-gui` charm in order to facilitate that. Check out the [Getting Started](https://jujucharms.com/get-started) page to set up Juju on the cloud you want to test on. 
 
 The first step is to deploy the workload you wish to benchmark. It can be as simple or complex as you'd like. For example, if you wanted to test a simple Cassandra cluster, you could:
 
