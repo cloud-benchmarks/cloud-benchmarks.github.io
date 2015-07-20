@@ -10,7 +10,7 @@ published: true
 
 tl;dr - We achieved better Cassandra performance on GCE vs. Amazon, at close to half the cost.
 
-When we decided to start the process of benchmarking across different clouds, Cassandra stood out as a great hello world for the way different clouds and tuning strategies can impact its performance. e'll continue to explore different configurations and cluster sizes over the coming weeks, and plan on eventually re-running the infamous [1 million writes in Cassandra](http://googlecloudplatform.blogspot.com/2014/03/cassandra-hits-one-million-writes-per-second-on-google-compute-engine.html) across public clouds. Cassandra is just the start though, we plan on highlighting numerous benchmarks for a wide range of services. With that, let’s get started!
+When we decided to start the process of benchmarking across different clouds, Cassandra stood out as a great "hello world" for the way different clouds and tuning strategies can impact performance. We'll continue to explore different configurations and cluster sizes over the coming weeks, and plan on eventually re-running the infamous [1 million writes in Cassandra](http://googlecloudplatform.blogspot.com/2014/03/cassandra-hits-one-million-writes-per-second-on-google-compute-engine.html) across public clouds. Cassandra is just the start though, we plan on highlighting numerous benchmarks for a wide range of services. With that, let’s get started!
 
 #The Setup
 
