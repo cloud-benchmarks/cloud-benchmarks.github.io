@@ -4,7 +4,7 @@ layout: post
 permalink: /about/submit.html
 published: true
 date: 2017-07-17 00:00:00
-
+highlight: submit
 ---
 
 The kind of comparative analysis that cloud-benchmarking.org hopes to foster depends on you the user to submit your benchmarking results. To do that, we've released a `benchmark-gui` charm in order to facilitate that. Check out the [Getting Started](https://jujucharms.com/get-started) page to set up Juju on the cloud you want to test on. 
@@ -22,7 +22,7 @@ Add the `benchmark-gui` to your environment:
 
 ```
 juju deploy cs:~marcoceppi/trusty/benchmark-gui
-juju set benchmark-gui juju-pass=<admin-secret from ~/.juju/environments.yaml>
+juju set benchmark-gui juju-pass=$(grep "password" ~/.juju/environments/$(juju switch).jenv | awk '{print $2}')
 ```
 
 And relate the two:
