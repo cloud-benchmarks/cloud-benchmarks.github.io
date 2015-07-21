@@ -2,10 +2,11 @@
 layout: default
 ---
 
-<html lang="en-us">
+{% if page.author %}{% assign author = site.authors[page.author] %}{% endif %}
+<html lang="en-us" itemscope itemtype="http://schema.org/Article">
   <head>
     <meta charset="UTF-8">
-    <title>Cloud Benchmarks</title>
+    <title>{{ page.title || Cloud Benchmarks }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="/stylesheets/normalize.css" media="screen">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
@@ -14,6 +15,39 @@ layout: default
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material-fullpalette.min.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="/stylesheets/github-light.css" media="screen">
+    <link rel="canonical" href="http://cloud-benchmarks.org{{ page.url }}" />
+    <meta name="description" content="{{ page.description || Learn more about how to benchmark workloads across any cloud }}" />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" value="{{ page.description || Learn more about how to benchmark workloads across any cloud }}">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="{{ page.title || Cloud Benchmarks }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="http://cloud-benchmarks.org{{ page.url }}" />
+    {% if page.image %}<meta property="og:image" content="{{ page.image }}" />{% endif %}
+    <meta property="og:description" content="{{ page.description || Learn more about how to benchmark workloads across any cloud }}" />
+
+
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="{{ page.title || Cloud Benchmarks }}">
+    <meta itemprop="description" content="{{ page.description || Learn more about how to benchmark workloads across any cloud }}">
+    {% if page.image %}<meta itemprop="image" content="{{ page.image }}">{% endif %}
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:site" content="@cloudbenchmarks">
+    <meta name="twitter:title" content="{{ page.title || Cloud Benchmarks }}">
+    <meta name="twitter:description" content="{{ page.description || Learn more about how to benchmark workloads across any cloud }}">
+    {% if page.author %}<meta name="twitter:creator" content="{{ author.twitter }}">{% endif %}
+    <!-- Twitter summary card with large image must be at least 280x150px -->
+    {% if page.image %}<meta name="twitter:image:src" content="{{ page.image }}">{% endif %}
+
+    <!-- Open Graph data -->
+    <meta property="og:site_name" content="Cloud Benchmarks" />
+    {% if page.date %}
+    <meta property="article:published_time" content="{{ page.date }}" />
+    <meta property="article:modified_time" content="{{ page.updated || page.date }}" />
+    {% endif %}
   </head>
   <body class="post">
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -28,7 +62,7 @@ layout: default
             <li><a href="http://cloud-benchmarks.org/submissions">Results</a></li>
             <li><a href="http://cloud-benchmarks.org/environments">Clouds</a></li>
             <li><a href="http://cloud-benchmarks.org/services">Workloads</a></li>
-            <li {% if page.highlight == "submit" %} class="active"{% endif %}><a href="http://blog.cloud-benchmarks.org/about/submit.html">Submit</a></li>
+            <li {% if page.highlight == "submit" %} class="active"{% endif %}><a href="/about/submit.html">Submit</a></li>
           </ul>
           <!--
           <ul class="nav navbar-nav navbar-right">
@@ -40,7 +74,7 @@ layout: default
     </nav>
     <section class="main-content">
         <h1>{{ page.title }}</h1>
-        <p class="meta">{{ page.date | date_to_string }}</p>
+        {% if page.date %}<p class="meta">{{ page.date | date_to_string }} {% if page.author %}by <a href="{{ author.web }}" target="_blank">{{ author.display_name }}</a>{% endif %}</p>{% endif %}
         <div class="post">
           {{ content }}
         </div>
@@ -63,6 +97,9 @@ layout: default
 
         {% endif %}
     </section>
+    <footer>
+        <p>an <a href="https://github.com/cloud-benchmarks">open source</a> project &lt3; user contributions licensed <a href="http://creativecommons.org/licenses/by-sa/4.0/">cc by-sa 4.0</a>, attribution required; site design &copy; 2015</p>
+    </footer>
     <script type="text/javascript">
         var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
         document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));

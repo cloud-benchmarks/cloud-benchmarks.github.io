@@ -1,13 +1,11 @@
 ---
 title: Comparing Cassandra Write Performance on Google Compute Engine and AWS
-author: Adam Israel
+author: aisrael
 layout: post
 comments: true
 published: true
 ---
 *... or how we created cross-cloud tunable, repeatable benchmarks for everybody.*
-
-by [Adam Israel](http://www.adamisrael.com/) 
 
 tl;dr - We achieved better Cassandra performance on GCE vs. Amazon, at close to half the cost.
 
