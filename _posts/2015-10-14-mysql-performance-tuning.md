@@ -3,7 +3,7 @@ title: MySQL performance tuning between disk types
 author: aisrael
 layout: post
 comments: true
-published: false
+published: true
 ---
 
 # Introduction
