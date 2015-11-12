@@ -7,7 +7,7 @@ highlight: submit
 description: Learn how to run and submit benchmarks to the Cloud Benchmarks platform
 ---
 
-The kind of comparative analysis that cloud-benchmarking.org hopes to foster depends on you the user to submit your benchmarking results. To do that, we've released a `benchmark-gui` charm in order to facilitate that. Check out the [Getting Started](https://jujucharms.com/get-started) page to set up Juju on the cloud you want to test on. 
+The kind of comparative analysis that cloud-benchmarking.org hopes to foster depends on you the user to submit your benchmarking results. To do that, we've released a `benchmark-gui` charm in order to facilitate that. Check out the [Getting Started](https://jujucharms.com/get-started) page to set up Juju on the cloud you want to test on.
 
 The first step is to deploy the workload you wish to benchmark. It can be as simple or complex as you'd like. For example, if you wanted to test a simple Cassandra cluster, you could:
 
@@ -20,7 +20,7 @@ Add the `benchmark-gui` to your environment:
 
 
     juju deploy cs:~marcoceppi/trusty/benchmark-gui
-    juju set benchmark-gui juju-pass=$(grep "password" ~/.juju/environments/$(juju switch).jenv | awk '{print $2}')
+    juju set benchmark-gui juju-pass=`juju api-info password`
 
 
 And relate the two:
