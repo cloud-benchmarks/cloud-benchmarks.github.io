@@ -36,4 +36,4 @@ At this point, you are ready to start benchmarking. You can read more about writ
     juju action do cassandra-stress/0 stress operations=2000000
 
 
-Open the benchmark-gui in your web browser by browsing to `http://unit-ipaddress/`. From there, you can select the relevant results and submit them by clicking "Publish to loud-benchmarking.org"
+Open the benchmark-gui in your web browser by browsing to `http://unit-ipaddress/`. From there, you can select the relevant results and submit them by clicking "Publish to cloud-benchmarks.org"
